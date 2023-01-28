@@ -51,16 +51,17 @@ export const getCollectionAndDocuments = async () => {
   const q = query(collectionRef);
 
   const quertSnapShot = await getDocs(q);
+  return quertSnapShot.docs.map( docSnapShot => docSnapShot.data() );
   
-  const categoryMap = quertSnapShot.docs.reduce((accumulator, docSnapShot) => {
-    let { title, items } = docSnapShot.data();
+  // const categoryMap = quertSnapShot.docs.reduce((accumulator, docSnapShot) => {
+  //   let { title, items } = docSnapShot.data();
   
-    accumulator[title.toLowerCase()] = items;
-    return accumulator;
-  }, {});
-  return categoryMap;
+  //   accumulator[title.toLowerCase()] = items;
+  //   return accumulator;
+  // }, {});
+  // return categoryMap;
 }
-getCollectionAndDocuments();
+// getCollectionAndDocuments();
 
 export const createUserDocumentFromAuth = async (
   userAuth,

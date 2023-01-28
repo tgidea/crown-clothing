@@ -27,7 +27,8 @@ const SignInForm = () => {
 
   const logGoogleUser = async () => {
     try {
-      const response = await signInWithGooglePopup();
+      // const response = await signInWithGooglePopup();
+      await signInWithGooglePopup();
       // setCurrentUser(response.user);
       resetFormFields();
     } catch (error) {
